@@ -3,7 +3,7 @@ from _thread import *
 from framework import * 
 import pickle
 
-server = "192.168.3.8"
+server = "192.168.100.58"
 port = 4445 
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -25,7 +25,7 @@ def threaded_client(client, current_player):
     reply = ""
     while 1:
         try:
-            data = pickle.loads(client.recv(2048*30))
+            data = pickle.loads(client.recv(4096*20))
             players[current_player] = data
 
             if not data:
